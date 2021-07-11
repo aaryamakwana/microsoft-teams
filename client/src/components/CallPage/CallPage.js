@@ -6,7 +6,7 @@ import {
   GET_CALL_ID,
   SAVE_CALL_ID,
 } from "./../../utils/apiEndpoints";
-import io from 'socket.io-client';
+import io from "socket.io-client";
 import Peer from "simple-peer";
 import "./CallPage.scss";
 import Messenger from "./../UI/Messenger/Messenger";
@@ -228,8 +228,8 @@ const CallPage = () => {
           messageList={messageList}
         />
       ) : (
-        messageAlert.isPopup && <Alert messageAlert={messageAlert} />
-      )}
+          messageAlert.isPopup && <Alert messageAlert={messageAlert} />
+        )}
     </div>
   );
 };
