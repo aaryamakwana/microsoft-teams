@@ -11,6 +11,7 @@ const HomePage = () => {
   const startCall = () => {
     const uid = shortid.generate();
     history.push(`/${uid}#init`);
+    //generated unique id and redirects
   };
 
   return (
