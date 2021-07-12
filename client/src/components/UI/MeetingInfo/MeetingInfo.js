@@ -11,7 +11,7 @@ const MeetingInfo = ({ setMeetInfoPopup, url }) => {
     return (
         <div className="meeting-info-block">
             <div className="meeting-header">
-                <h3>Your meeting has started!</h3>
+                <h3>Your call has started!</h3>
                 <FontAwesomeIcon
                     className="icon"
                     icon={faTimes}
@@ -25,7 +25,7 @@ const MeetingInfo = ({ setMeetInfoPopup, url }) => {
         To Add Others:
       </button>
             <p className="info-text">
-                Share this meeting link with others you want in the meeting: 
+                Share this link with others you want to invite on this call: 
       </p>
             <div className="meet-link">
                 <span>{url}</span>
