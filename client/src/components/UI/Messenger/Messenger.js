@@ -31,7 +31,6 @@ const Messenger = ({ setIsMessenger, sendMsg, messageList }) => {
   return (
     <div className="messenger-container">
       <div className="messenger-header">
-        <h3>Meeting details</h3>
         <FontAwesomeIcon
           className="icon"
           icon={faTimes}
@@ -42,10 +41,6 @@ const Messenger = ({ setIsMessenger, sendMsg, messageList }) => {
       </div>
 
       <div className="messenger-header-tabs">
-        <div className="tab">
-          <FontAwesomeIcon className="icon" icon={faUserFriends} />
-          <p>People (1)</p>
-        </div>
         <div className="tab active">
           <FontAwesomeIcon className="icon" icon={faCommentAlt} />
           <p>Chat</p>

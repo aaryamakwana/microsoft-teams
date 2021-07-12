@@ -2,7 +2,7 @@ import "./HomePage.scss";
 import Header from "../UI/Header/Header";
 import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faVideo, faKeyboard } from "@fortawesome/free-solid-svg-icons";
+import { faPhone, faKeyboard } from "@fortawesome/free-solid-svg-icons";
 import shortid from "shortid";
 
 const HomePage = () => {
@@ -20,31 +20,26 @@ const HomePage = () => {
       <div className="body">
         <div className="left-side">
           <div className="content">
-            <h2>Microsoft Teams meet app</h2>
+            <h2>Microsoft Teams app</h2>
             <p>
               This is a video call platform
             </p>
             <div className="action-btn">
               <button className="btn blue" onClick={startCall}>
-                <FontAwesomeIcon className="icon-block" icon={faVideo} />
-                New Meeting
+                <FontAwesomeIcon className="icon-block" icon={faPhone} />
+                <i class="fa faPhone fa-rotate-90"></i>
+                New Call
               </button>
-              <div className="input-block">
-                <div className="input-section">
-                  <FontAwesomeIcon className="icon-block" icon={faKeyboard} />
-                  <input placeholder="Enter a code or link" />
-                </div>
-                <button className="btn no-bg">Join</button>
-              </div>
+              
             </div>
           </div>
           <div className="help-text">
-            <a href="">Learn more</a> about Google Meet
+            Please click on "New Call" to start a Call with anyone.
           </div>
         </div>
         <div className="right-side">
           <div className="content">
-            <img src="https://www.gstatic.com/meet/google_meet_marketing_ongoing_meeting_grid_427cbb32d746b1d0133b898b50115e96.jpg" />
+            <img src="/Users/aaryamakwana/microsoft-teams/microsoft_call_image.jpg" />
           </div>
         </div>
       </div>

@@ -31,6 +31,7 @@ const CallPageHeader = ({
             <div className="header-items icon-block">
                 <FontAwesomeIcon className="icon" icon={faUserFriends} />
             </div>
+            <div className="header-items date-block">{currentTime}</div>
             <div
                 className="header-items icon-block"
                 onClick={() => {
@@ -42,10 +43,6 @@ const CallPageHeader = ({
                 {!isMessenger && messageAlert.alert && (
                     <span className="alert-circle-icon"></span>
                 )}
-            </div>
-            <div className="header-items date-block">{currentTime}</div>
-            <div className="header-items icon-block">
-                <FontAwesomeIcon className="icon profile" icon={faUserCircle} />
             </div>
         </div>
     );

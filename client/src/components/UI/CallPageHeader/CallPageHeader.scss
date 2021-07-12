@@ -2,10 +2,10 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 350px;
+    width: 500px;
     position: absolute;
     top: 0;
-    right: 0;
+    right: 32%;
     background: #6A5ACD;
     border-radius: 0 0 0 10px;
     overflow: hidden;
@@ -15,21 +15,21 @@
         justify-content: center;
         height: 50px;
         flex: 1;
-        border-right: 1px solid rgb(245, 245, 245);
+        //border-right: 1px solid rgb(245, 245, 245);
         position: relative;
         .alert-circle-icon {
           position: absolute;
           background: #ffffff;
           width: 10px;
           height: 10px;
-          border-radius: 50%;
-          border: 2px solid #fff;
+          //border-radius: 50%;
+          //border: 2px solid #fff;
           top: 10px;
           right: 20px;
         }
         &.date-block {
             font-size: 22px;
-            color: #000000;
+            color: #ffffff;
             min-width: 120px;
             font-weight: 400;
           }
