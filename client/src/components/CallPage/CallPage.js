@@ -1,9 +1,10 @@
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useReducer, useRef, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { getRequest, postRequest } from "./../../utils/apiRequests";
 import {
   BASE_URL,
   GET_CALL_ID,
+  GET_ICE_SERVER,
   SAVE_CALL_ID,
 } from "./../../utils/apiEndpoints";
 import io from "socket.io-client";
@@ -32,6 +33,8 @@ const CallPage = () => {
     initialState
   );
 
+  const iceServers = useRef([]);
+
   const [streamObj, setStreamObj] = useState();
   const [screenCastStream, setScreenCastStream] = useState();
   const [meetInfoPopup, setMeetInfoPopup] = useState(false);
@@ -43,8 +46,10 @@ const CallPage = () => {
   useEffect(() => {
     if (isAdmin) {
       setMeetInfoPopup(true);
-    }
+      getICServer();
+    } else {
     initWebRTC();
+    }
     socket.on("code", (data) => {
       if (data.url === url) {
         peer.signal(data.code);
@@ -52,6 +57,12 @@ const CallPage = () => {
     });
   }, []);
 
+  const getICServer = async () => {
+    const response = await getRequest(`${BASE_URL}${GET_ICE_SERVER}`);
+    iceServers.current = response;
+    initWebRTC();
+  }
+  
   const getRecieverCode = async () => {
     const response = await getRequest(`${BASE_URL}${GET_CALL_ID}/${id}`);
     if (response.code) {
@@ -68,18 +79,29 @@ const CallPage = () => {
       .then((stream) => {
         setStreamObj(stream);
 
+        if (isAdmin && iceServers.current && iceServers.current.length) {
+          peer = new Peer({
+            initiator: isAdmin,
+            trickle: false,
+            stream: stream,
+            config: {
+              iceServers: iceServers.current
+            }
+          });
+        }
+
+        if (!isAdmin) {
         peer = new Peer({
           initiator: isAdmin,
           trickle: false,
           stream: stream,
         });
-
-        if (!isAdmin) {
           getRecieverCode();
         }
 
         peer.on("signal", async (data) => {
           if (isAdmin) {
+            console.log("data", data);
             let payload = {
               id,
               signalData: data,
@@ -94,7 +116,7 @@ const CallPage = () => {
         });
 
         peer.on("connect", () => {
-          // wait for 'connect' event before using the data channel
+          // wait for 'connect' event before using data channel
         });
 
         peer.on("data", (data) => {
@@ -127,7 +149,7 @@ const CallPage = () => {
         });
 
         peer.on("stream", (stream) => {
-          // got remote video stream, now let's show it in a video tag
+          // got remote video stream, now showing in a video tag
           let video = document.querySelector("video");
 
           if ("srcObject" in video) {

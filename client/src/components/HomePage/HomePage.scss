@@ -38,7 +38,9 @@
               color: #483d8b;
               text-decoration: none;
               .icon-block {
-                padding-right: 20px;
+                padding-right: 10px;
+                padding-left: 20px;
+                transform: rotateY(180deg);
               }
             }
           }

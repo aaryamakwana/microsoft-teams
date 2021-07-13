@@ -27,7 +27,6 @@ const HomePage = () => {
             <div className="action-btn">
               <button className="btn blue" onClick={startCall}>
                 <FontAwesomeIcon className="icon-block" icon={faPhone} />
-                <i class="fa faPhone fa-rotate-90"></i>
                 New Call
               </button>
               
@@ -39,7 +38,7 @@ const HomePage = () => {
         </div>
         <div className="right-side">
           <div className="content">
-            <img src="/Users/aaryamakwana/microsoft-teams/microsoft_call_image.jpg" />
+            <img src="../../microsoft_call_image.jpg" />
           </div>
         </div>
       </div>
