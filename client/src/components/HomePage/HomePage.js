@@ -38,7 +38,7 @@ const HomePage = () => {
         </div>
         <div className="right-side">
           <div className="content">
-            <img src="../../microsoft_call_image.jpg" />
+            <img src="https://microsoft.acehacker.com/engage2021/img/demo-content/images/microsoft_teams.png" />
           </div>
         </div>
       </div>
